@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
@@ -26,6 +27,6 @@ io.on("connection",socket=>{
         });
     });
 });
+const port = process.env.NODE_ENV || 1234;
 
-
-server.listen(1234,()=>console.log("server is listening at 1234"))
+server.listen(port,()=>console.log(`server is listening at port ${port}`));
